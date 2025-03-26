@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: ml-predictor
+    env: python
+    buildCommand: chmod +x build.sh && ./build.sh
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.8.12
+      - key: PYTHONUNBUFFERED
+        value: 1 

@@ -2,11 +2,19 @@
 # exit on error
 set -o errexit
 
-# Install dependencies
-pip install -r requirements.txt
+echo "Starting build process..."
 
 # Create models directory
+echo "Creating models directory..."
 mkdir -p models
 
+# Install dependencies
+echo "Installing dependencies..."
+pip install --upgrade pip
+pip install -r requirements.txt
+
 # Train the models
-python train_models.py 
+echo "Training models..."
+python train_models.py
+
+echo "Build process completed!" 

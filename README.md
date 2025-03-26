@@ -14,7 +14,7 @@ This project implements a web-based prediction system using various machine lear
 - Loan approval prediction using classification models
 - Modern and responsive UI
 
-## Setup Instructions
+## Local Setup Instructions
 
 1. Create a virtual environment (recommended):
 ```bash
@@ -41,6 +41,15 @@ python app.py
 ```
 http://localhost:5000
 ```
+
+## Deployment to Render
+
+1. Create a new Web Service on Render
+2. Connect your GitHub repository
+3. Configure the following settings:
+   - Build Command: `pip install -r requirements.txt`
+   - Start Command: `gunicorn app:app`
+   - Python Version: 3.8.12
 
 ## Usage
 
@@ -69,4 +78,17 @@ The system uses a sample dataset (`sample_data.csv`) with the following features
 - Salary
 - Loan Approval Status
 
-You can replace the sample dataset with your own data by modifying the `train_models.py` file. 
+You can replace the sample dataset with your own data by modifying the `train_models.py` file.
+
+## Project Structure
+```
+├── app.py                 # Flask application
+├── train_models.py        # Model training script
+├── sample_data.csv        # Sample dataset
+├── requirements.txt       # Python dependencies
+├── runtime.txt           # Python version specification
+├── Procfile             # Render deployment configuration
+├── models/              # Directory for saved models
+└── templates/           # HTML templates
+    └── index.html       # Main web interface
+``` 
